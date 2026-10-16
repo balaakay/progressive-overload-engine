@@ -25,9 +25,14 @@ export const hitAll = (log: ExerciseLog, sets: number, reps: number) =>
   log.sets.length >= sets && log.sets.every((s) => s.reps >= reps)
 
 
-export const roundTo = (w: number, step: number) =>
-  Math.round(w / step) * step
+export const roundTo = (w: number, step: number) => {
+  if(w < 0 ) throw new RangeError("weight needs to be positive or 0")
+  if(step <= 0 ) throw new RangeError("Cannot have a step of 0 or negative")
+  return Math.round(w / step) * step
+}
 
 
-export const uniform = (n: number, set: PrescribedSet): PrescribedSet[] =>
-  Array.from({ length: n }, () => ({ ...set }))
+export const uniform = (n: number, set: PrescribedSet): PrescribedSet[] => {
+  if(n < 0) throw new RangeError("n needs to be a positive number")
+  return Array.from({ length: n }, () => ({ ...set }))
+}

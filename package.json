@@ -2,10 +2,10 @@
   "name": "progressive-overload-engine",
   "version": "1.0.0",
   "description": "",
-  "main": "main.ts",
+  "main": "src/main.ts",
   "scripts": {
-    "start": "tsx main.ts",
-    "dev": "tsx watch main.ts",
+    "start": "tsx src/main.ts",
+    "dev": "tsx watch src/main.ts",
     "typecheck": "tsc --noEmit",
     "build": "tsc",
     "start:dist": "npm run build && node --import ./loader.mjs dist/main.js",
