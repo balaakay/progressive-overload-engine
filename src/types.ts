@@ -17,7 +17,7 @@ export type Tempo = {
   stretch: Cadence
 }
 
-export type SetResult = { weight: number; reps: number; rpe?: number; rir?: number; tempo?: Tempo }
+export type SetResult = { weight: number; reps: number; rpe?: number; rir?: number; tempo?: Tempo; partials?: number }
 export type ExerciseLog = { exercise: string; sets: SetResult[] }
 export type Workout = { date: Date; logs: ExerciseLog[] }
 
@@ -26,7 +26,8 @@ export type PrescribedSet = {
   reps: number,
   targetRPE?: number,
   amrap?: boolean,
-  targetRIR?: number
+  targetRIR?: number,
+  partials?: number
 }
 
 export interface ProgressionStrategy {

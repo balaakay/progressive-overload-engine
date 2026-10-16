@@ -4,9 +4,6 @@
 // Type-only import from a root file:
 import type { Workout } from "@/types.js"
 
-// Value imports from root files:
-import { roundTo } from "@/history.js"
-
 // Import from a subdirectory:
 import { LinearProgression } from "@/strategies/linear-progression.js"
 
@@ -22,5 +19,4 @@ const strategy = new LinearProgression({
 const history: Workout[] = []
 const prescribed = strategy.next(history, "squat")
 
-console.log("roundTo(103, ", strategy.getRoundingWeight(), ") =", roundTo(103, strategy.getRoundingWeight()))
 console.log("prescribed sets  =", prescribed)

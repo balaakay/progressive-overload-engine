@@ -15,7 +15,10 @@ export function recentLogs(
 }
 
 
-export const workingWeight = (log: ExerciseLog) => log.sets[0]?.weight
+export const workingWeight = (log: ExerciseLog) => {
+  if (!log.sets || log.sets.length === 0) return undefined;
+  return Math.max(...log.sets.map(set => set.weight));
+};
 
 
 export const hitAll = (log: ExerciseLog, sets: number, reps: number) =>
